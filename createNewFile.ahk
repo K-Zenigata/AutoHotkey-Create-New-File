@@ -6,6 +6,10 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; Shift + Ctrl + F で、ファイルの新規作成
 ^+f::
 {
+     ; エクスプローラーウィンドウがアクティブでなければ終了
+    IfWinNotActive, ahk_class CabinetWClass
+        return
+    
     Send, !d 
     Send, ^c
     Sleep, 100
